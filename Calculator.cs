@@ -11,7 +11,9 @@
 
                 double firstNumber = parseNumber();
                 string operation = ValidateOperation();
-                double secondNumber = parseNumber();
+                double secondNumber = 0;
+                if (operation != "#")
+                    secondNumber = parseNumber();
                 double result =  Calculate(firstNumber, operation, secondNumber);
                 Console.WriteLine(result);
             }
@@ -55,8 +57,11 @@
                 "^" => Math.Pow(firstNumber, secondNumber),
                 "#" => Math.Sqrt(firstNumber),
                 _ => 0,
-            }; 
-            Console.WriteLine($"Natija {firstNumber} {operation} {secondNumber} = {result}");
+            };
+            if (operation != "#")
+                Console.WriteLine($"Natija {firstNumber} {operation} {secondNumber} = {result}");
+            else
+                Console.WriteLine($"Natija: √{firstNumber} = {result}");
             return result;
         }
     }
