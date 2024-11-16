@@ -16,7 +16,6 @@
                 Console.WriteLine(result);
             }
 
-
         }
         private double parseNumber()
         {
@@ -36,9 +35,9 @@
         private string ValidateOperation()
         {
             string operation = string.Empty;
-            while (operation != "+" && operation != "-" && operation != "*" && operation != "/" && operation != "^")
+            while (operation != "+" && operation != "-" && operation != "*" && operation != "/" && operation != "^" && operation != "#")
             {
-                Console.WriteLine("Amalni kiriting (+ - * / ^ )");
+                Console.WriteLine("Amalni kiriting (+ - * / ^ ) #");
                 operation = Console.ReadLine();
             }
             return operation;
@@ -54,8 +53,9 @@
                 "*" => firstNumber * secondNumber,
                 "/" => firstNumber / secondNumber,
                 "^" => Math.Pow(firstNumber, secondNumber),
+                "#" => Math.Sqrt(firstNumber),
                 _ => 0,
-            };
+            }; 
             Console.WriteLine($"Natija {firstNumber} {operation} {secondNumber} = {result}");
             return result;
         }
